@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Agregar cliente</title>
+</head>
+<body>
+	<form th:action="@{/cliente-formulario}" th:object="${cliente}" method="post">
+		<p>Nombre</p><br>
+		<input type="text" th:field="*{nombre}" />
+		<p>Calle</p><br>
+		<input type="text" th:field="*{direccion.calle}" />
+		<p>Ciudad</p><br>
+		<input type="text" th:field="*{direccion.ciudad}" /><br>
+		<button type="submit">Enviar</button>
+	</form>
+</body>
+</html>

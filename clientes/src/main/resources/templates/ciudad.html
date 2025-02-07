@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form th:action="@{/ciudad}" method="post">
+		<p>Introduce ciudad</p>
+		<input type="text" id="ciudad" name="ciudad" required>
+		<button type="submit">Buscar</button>
+	</form>
+	<div th:if="${clientes}">
+		<h3>
+			Resultados para: <span th:text="${ciudadBuscada}"></span>
+		</h3>
+		<ul>
+			<li th:each="cliente : ${clientes}"><span
+				th:text="${cliente.nombre}"></span> - <span
+				th:text="${cliente.direccion.calle}"></span></li>
+		</ul>
+	</div>
+
+
+</body>
+</html>
