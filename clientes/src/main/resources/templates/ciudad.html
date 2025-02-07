@@ -5,7 +5,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form th:action="@{/ciudad}" method="post">
+	<form th:action="@{/buscarPorCiudad}" method="get">
+		<!-- mehtod get por que busco datos en ddbb y endpoint de ese metodo que gestiona esos datos -->
 		<p>Introduce ciudad</p>
 		<input type="text" id="ciudad" name="ciudad" required>
 		<button type="submit">Buscar</button>
@@ -14,11 +15,16 @@
 		<h3>
 			Resultados para: <span th:text="${ciudadBuscada}"></span>
 		</h3>
-		<ul>
-			<li th:each="cliente : ${clientes}"><span
-				th:text="${cliente.nombre}"></span> - <span
-				th:text="${cliente.direccion.calle}"></span></li>
-		</ul>
+		<div th:if="${clientes}">
+			<ul>
+				<li th:each="cliente : ${clientes}"><span
+					th:text="${cliente.nombre}"></span> - <span
+					th:text="${cliente.direccion.calle}"></span></li>
+			</ul>
+		</div>
+	</div>
+	<div th:if="${clientes.empty}">
+		<p>No hay clientes</p>
 	</div>
 
 

@@ -22,10 +22,10 @@ public class ClientesApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		// 1. Insertar el cliente con nombre Pepe  Ruiz y dirección calle sol de
+		 //1. Insertar el cliente con nombre Pepe  Ruiz y dirección calle sol de
 				// Oviedo.
 
-				/*Cliente cliente1 = new Cliente();
+				Cliente cliente1 = new Cliente();
 				cliente1.setNombre("Pepe Ruiz");
 
 				Direccion dir1 = new Direccion();
@@ -109,7 +109,7 @@ public class ClientesApplication implements CommandLineRunner{
 				List<Cliente> clientes = clienteService.getAllClientes();
 				for (Cliente cliente : clientes) {
 					System.out.println(cliente);
-				}*/
+				}
 			}
 
 

@@ -35,12 +35,15 @@ public class HomeController {
 	}
 	
 	@GetMapping("/cliente-formulario")
+	//pasar un cliente vacio a la vista
 	public String form(Model model) {
 		model.addAttribute("cliente", new Cliente());
 		return "cliente-formulario";
+		//devuelve la pagina del formulario
 	}
 	
 	@PostMapping("cliente-formulario")
+	//post por que voy a insertar datos
 	public String submitForm(@ModelAttribute Cliente cliente, Model model) {
 		model.addAttribute("mensaje","Cliente registrado");
 		servicio.saveCliente(cliente);
@@ -48,11 +51,14 @@ public class HomeController {
 	}
 	
 	@GetMapping("/ciudad")
+	//solo mostramos el formulario por que no necesitamos un objeto,
+	//solo vamos a buscar una cadena
 	public String mostrarFormulario() {
 		return "ciudad";
 	}
 	
-	@PostMapping("/ciudad") //post por que recibe datos por formulario
+	@GetMapping("/buscarPorCiudad") //post por que recibe datos por formulario
+	//gat que poner get en em mehtod del <form> y en el action este endpoint /buscarPorCiudad
 	public String buscarPorCiudad(@RequestParam String ciudad, Model model) {
 		System.out.println("Buscando clientes para la ciudad: " + ciudad);
 		List<Cliente> clientes = servicio.findClientesByCiudad(ciudad);
